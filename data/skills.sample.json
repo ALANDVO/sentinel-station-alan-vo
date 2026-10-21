@@ -1,0 +1,290 @@
+{
+  "skills": [
+    {
+      "id": "langchain",
+      "name": "LangChain",
+      "description": "Framework for developing applications powered by language models. Provides chains, agents, memory, and integrations with 100+ tools.",
+      "category": "orchestration",
+      "tags": ["llm", "agents", "chains", "rag", "python"],
+      "repo_url": "https://github.com/langchain-ai/langchain",
+      "install_command": "pip install langchain",
+      "version": "0.3.0",
+      "dependencies": []
+    },
+    {
+      "id": "langgraph",
+      "name": "LangGraph",
+      "description": "Library for building stateful, multi-actor applications with LLMs. Built on LangChain, provides graph-based orchestration.",
+      "category": "orchestration",
+      "tags": ["llm", "agents", "graph", "stateful", "python"],
+      "repo_url": "https://github.com/langchain-ai/langgraph",
+      "install_command": "pip install langgraph",
+      "version": "0.2.0",
+      "dependencies": ["langchain"]
+    },
+    {
+      "id": "autogen",
+      "name": "AutoGen",
+      "description": "Microsoft's framework for enabling next-gen LLM applications via multi-agent conversation. Supports autonomous and human-in-the-loop workflows.",
+      "category": "orchestration",
+      "tags": ["llm", "agents", "multi-agent", "conversation", "python"],
+      "repo_url": "https://github.com/microsoft/autogen",
+      "install_command": "pip install pyautogen",
+      "version": "0.4.0",
+      "dependencies": []
+    },
+    {
+      "id": "crewai",
+      "name": "CrewAI",
+      "description": "Framework for orchestrating role-playing autonomous AI agents. Enables collaborative agents to accomplish complex tasks.",
+      "category": "orchestration",
+      "tags": ["llm", "agents", "roleplay", "collaborative", "python"],
+      "repo_url": "https://github.com/joaomdmoura/crewAI",
+      "install_command": "pip install crewai",
+      "version": "0.80.0",
+      "dependencies": []
+    },
+    {
+      "id": "semantic-kernel",
+      "name": "Semantic Kernel",
+      "description": "Microsoft's SDK for integrating AI services like LLMs into conventional programming languages. Supports planners and skills.",
+      "category": "orchestration",
+      "tags": ["llm", "planners", "skills", "csharp", "python", "java"],
+      "repo_url": "https://github.com/microsoft/semantic-kernel",
+      "install_command": "pip install semantic-kernel",
+      "version": "1.20.0",
+      "dependencies": []
+    },
+    {
+      "id": "llama-index",
+      "name": "LlamaIndex",
+      "description": "Data framework for building LLM applications over external data. Provides indexing, retrieval, and query engines for RAG.",
+      "category": "rag",
+      "tags": ["llm", "rag", "indexing", "retrieval", "python"],
+      "repo_url": "https://github.com/run-llama/llama_index",
+      "install_command": "pip install llama-index",
+      "version": "0.11.0",
+      "dependencies": []
+    },
+    {
+      "id": "chromadb",
+      "name": "ChromaDB",
+      "description": "Open-source embedding database for AI applications. Provides vector storage, similarity search, and metadata filtering.",
+      "category": "vector-db",
+      "tags": ["vector-db", "embeddings", "search", "python"],
+      "repo_url": "https://github.com/chroma-core/chroma",
+      "install_command": "pip install chromadb",
+      "version": "0.5.0",
+      "dependencies": []
+    },
+    {
+      "id": "qdrant",
+      "name": "Qdrant",
+      "description": "Vector similarity search engine with extended filtering support. Written in Rust, provides high-performance vector search.",
+      "category": "vector-db",
+      "tags": ["vector-db", "search", "rust", "docker"],
+      "repo_url": "https://github.com/qdrant/qdrant",
+      "install_command": "docker run -p 6333:6333 qdrant/qdrant",
+      "version": "1.10.0",
+      "dependencies": []
+    },
+    {
+      "id": "weaviate",
+      "name": "Weaviate",
+      "description": "Cloud-native vector database with GraphQL and REST APIs. Supports hybrid search, modules for embeddings, and multi-tenancy.",
+      "category": "vector-db",
+      "tags": ["vector-db", "graphql", "hybrid-search", "docker", "go"],
+      "repo_url": "https://github.com/weaviate/weaviate",
+      "install_command": "docker run -p 8080:8080 semitechnologies/weaviate",
+      "version": "1.25.0",
+      "dependencies": []
+    },
+    {
+      "id": "haystack",
+      "name": "Haystack",
+      "description": "End-to-end framework for building NLP applications. Supports RAG, question answering, semantic search, and document processing.",
+      "category": "rag",
+      "tags": ["nlp", "rag", "qa", "search", "python"],
+      "repo_url": "https://github.com/deepset-ai/haystack",
+      "install_command": "pip install haystack-ai",
+      "version": "2.5.0",
+      "dependencies": []
+    },
+    {
+      "id": "dspy",
+      "name": "DSPy",
+      "description": "Framework for algorithmically optimizing LM prompts and weights. Replaces prompt engineering with systematic optimization.",
+      "category": "optimization",
+      "tags": ["prompt-optimization", "llm", "systematic", "python"],
+      "repo_url": "https://github.com/stanfordnlp/dspy",
+      "install_command": "pip install dspy-ai",
+      "version": "2.5.0",
+      "dependencies": []
+    },
+    {
+      "id": "guidance",
+      "name": "Guidance",
+      "description": "Programming language for controlling LLMs. Enables constrained generation, structured output, and interleaved logic.",
+      "category": "prompting",
+      "tags": ["constrained-generation", "structured-output", "python"],
+      "repo_url": "https://github.com/guidance-ai/guidance",
+      "install_command": "pip install guidance",
+      "version": "0.1.0",
+      "dependencies": []
+    },
+    {
+      "id": "instructor",
+      "name": "Instructor",
+      "description": "Library for structured outputs from LLMs. Uses Pydantic models for validation, retries, and streaming support.",
+      "category": "prompting",
+      "tags": ["structured-output", "validation", "pydantic", "python"],
+      "repo_url": "https://github.com/jxnl/instructor",
+      "install_command": "pip install instructor",
+      "version": "1.5.0",
+      "dependencies": []
+    },
+    {
+      "id": "openai-python",
+      "name": "OpenAI Python SDK",
+      "description": "Official Python client for OpenAI API. Supports chat completions, embeddings, images, audio, and fine-tuning.",
+      "category": "llm-client",
+      "tags": ["openai", "api-client", "python"],
+      "repo_url": "https://github.com/openai/openai-python",
+      "install_command": "pip install openai",
+      "version": "1.40.0",
+      "dependencies": []
+    },
+    {
+      "id": "anthropic-python",
+      "name": "Anthropic Python SDK",
+      "description": "Official Python client for Anthropic API. Supports messages, streaming, and tool use with Claude models.",
+      "category": "llm-client",
+      "tags": ["anthropic", "claude", "api-client", "python"],
+      "repo_url": "https://github.com/anthropics/anthropic-sdk-python",
+      "install_command": "pip install anthropic",
+      "version": "0.30.0",
+      "dependencies": []
+    },
+    {
+      "id": "ollama-python",
+      "name": "Ollama Python Client",
+      "description": "Python client for Ollama local LLM inference. Supports chat, generate, embeddings, and model management.",
+      "category": "llm-client",
+      "tags": ["ollama", "local-llm", "api-client", "python"],
+      "repo_url": "https://github.com/ollama/ollama-python",
+      "install_command": "pip install ollama",
+      "version": "0.3.0",
+      "dependencies": []
+    },
+    {
+      "id": "litellm",
+      "name": "LiteLLM",
+      "description": "Unified API for 100+ LLM providers. Provides OpenAI-compatible interface, load balancing, fallbacks, and cost tracking.",
+      "category": "llm-client",
+      "tags": ["unified-api", "load-balancing", "fallbacks", "python"],
+      "repo_url": "https://github.com/BerriAI/litellm",
+      "install_command": "pip install litellm",
+      "version": "1.45.0",
+      "dependencies": []
+    },
+    {
+      "id": "transformers",
+      "name": "Hugging Face Transformers",
+      "description": "State-of-the-art machine learning library for NLP, computer vision, and audio. 100k+ pretrained models.",
+      "category": "ml-framework",
+      "tags": ["nlp", "cv", "audio", "pretrained-models", "python"],
+      "repo_url": "https://github.com/huggingface/transformers",
+      "install_command": "pip install transformers",
+      "version": "4.45.0",
+      "dependencies": []
+    },
+    {
+      "id": "peft",
+      "name": "PEFT",
+      "description": "Parameter-Efficient Fine-Tuning library for adapting pretrained models. Supports LoRA, AdaLoRA, IA3, and more.",
+      "category": "ml-framework",
+      "tags": ["fine-tuning", "lora", "parameter-efficient", "python"],
+      "repo_url": "https://github.com/huggingface/peft",
+      "install_command": "pip install peft",
+      "version": "0.13.0",
+      "dependencies": ["transformers"]
+    },
+    {
+      "id": "trl",
+      "name": "TRL",
+      "description": "Transformer Reinforcement Learning library for training language models with RLHF, DPO, PPO, and KTO.",
+      "category": "ml-framework",
+      "tags": ["rlhf", "dpo", "ppo", "alignment", "python"],
+      "repo_url": "https://github.com/huggingface/trl",
+      "install_command": "pip install trl",
+      "version": "0.10.0",
+      "dependencies": ["transformers"]
+    },
+    {
+      "id": "langsmith",
+      "name": "LangSmith",
+      "description": "Platform for debugging, testing, and monitoring LLM applications. Provides tracing, evaluation, and dataset management.",
+      "category": "observability",
+      "tags": ["tracing", "evaluation", "monitoring", "langchain", "python"],
+      "repo_url": "https://github.com/langchain-ai/langsmith-sdk",
+      "install_command": "pip install langsmith",
+      "version": "0.1.0",
+      "dependencies": []
+    },
+    {
+      "id": "phoenix",
+      "name": "Arize Phoenix",
+      "description": "Open-source LLM observability platform. Provides tracing, evaluation, and drift detection for LLM applications.",
+      "category": "observability",
+      "tags": ["tracing", "evaluation", "drift-detection", "open-source", "python"],
+      "repo_url": "https://github.com/Arize-ai/phoenix",
+      "install_command": "pip install arize-phoenix",
+      "version": "4.0.0",
+      "dependencies": []
+    },
+    {
+      "id": "langfuse",
+      "name": "Langfuse",
+      "description": "Open-source LLM engineering platform. Observability, analytics, evaluations, and prompt management.",
+      "category": "observability",
+      "tags": ["observability", "analytics", "prompt-management", "open-source", "python"],
+      "repo_url": "https://github.com/langfuse/langfuse",
+      "install_command": "pip install langfuse",
+      "version": "2.60.0",
+      "dependencies": []
+    },
+    {
+      "id": "mlflow",
+      "name": "MLflow",
+      "description": "Open-source platform for the ML lifecycle. Experiment tracking, model registry, deployment, and project reproducibility.",
+      "category": "mlops",
+      "tags": ["experiment-tracking", "model-registry", "deployment", "python"],
+      "repo_url": "https://github.com/mlflow/mlflow",
+      "install_command": "pip install mlflow",
+      "version": "2.16.0",
+      "dependencies": []
+    },
+    {
+      "id": "dvc",
+      "name": "DVC",
+      "description": "Data Version Control for ML projects. Version data, models, and pipelines alongside code with Git.",
+      "category": "mlops",
+      "tags": ["data-versioning", "pipelines", "reproducibility", "python"],
+      "repo_url": "https://github.com/iterative/dvc",
+      "install_command": "pip install dvc",
+      "version": "3.50.0",
+      "dependencies": []
+    },
+    {
+      "id": "prefect",
+      "name": "Prefect",
+      "description": "Workflow orchestration for data and ML pipelines. Python-native, supports scheduling, retries, and observability.",
+      "category": "mlops",
+      "tags": ["orchestration", "pipelines", "scheduling", "python"],
+      "repo_url": "https://github.com/PrefectHQ/prefect",
+      "install_command": "pip install prefect",
+      "version": "3.2.0",
+      "dependencies": []
+    }
+  ]
+}

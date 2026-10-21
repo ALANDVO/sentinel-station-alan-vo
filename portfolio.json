@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "name": "sentinel-station-alan-vo",
+  "owner": "ALANDVO",
+  "email": "alanvo@gmail.com",
+  "domain": "AI/ML developer tools",
+  "summary": "Work in progress: sentinel-station-alan-vo",
+  "workflows": [
+    "Discover and search 2,600+ agentic skills from local catalog with category/tag filtering",
+    "Validate skill stack compatibility and export execution plans",
+    "Plan multi-agent workflows with dependency resolution and conflict detection"
+  ],
+  "auth": "oidc-keycloak-saml-broker",
+  "llm_providers": [
+    "openai-compatible",
+    "anthropic",
+    "gemini",
+    "ollama"
+  ],
+  "status": "work-in-progress"
+}
