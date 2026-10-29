@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "current_feature": "catalog-discovery-categories-tags",
+  "features": [
+    {
+      "id": "core-skeleton",
+      "title": "Core FastAPI/React skeleton with health endpoint",
+      "status": "done",
+      "acceptance": [
+        "FastAPI backend starts and responds to GET /health",
+        "React + Vite frontend builds and serves",
+        "Docker compose brings up both services",
+        "Backend tests pass (pytest)",
+        "Frontend typecheck and tests pass (vitest)"
+      ],
+      "implementation": [
+        "backend/app/main.py",
+        "backend/app/api/health.py",
+        "backend/app/core/config.py",
+        "backend/app/api/deps.py",
+        "backend/requirements.txt",
+        "backend/tests/test_health.py",
+        "frontend/package.json",
+        "frontend/vite.config.ts",
+        "frontend/src/main.tsx",
+        "frontend/src/App.tsx",
+        "frontend/src/api/client.ts",
+        "frontend/tests/App.test.tsx",
+        "backend/Dockerfile",
+        "frontend/Dockerfile",
+        "docker-compose.yaml",
+        ".env.example",
+        "README.md",
+        "LICENSE",
+        "CHANGELOG.md",
+        "portfolio.json"
+      ],
+      "tests": [
+        "backend/tests/test_health.py",
+        "frontend/tests/App.test.tsx"
+      ]
+    },
+    {
+      "id": "catalog-discovery",
+      "title": "Agentic Skills Catalog discovery and search",
+      "status": "done",
+      "acceptance": [
+        "Backend loads skills from local JSON catalog",
+        "GET /api/v1/skills supports pagination, filtering by category/tag",
+        "GET /api/v1/skills/categories returns all unique categories",
+        "GET /api/v1/skills/tags returns all unique tags",
+        "Frontend dashboard displays searchable, paginated skill list",
+        "Frontend category filter populates dynamically from API",
+        "Skill detail view shows description, repo, install command"
+      ],
+      "implementation": [
+        "backend/app/models/skill.py",
+        "backend/app/services/catalog.py",
+        "backend/app/api/skills.py",
+        "backend/app/services/ingest.py",
+        "backend/tests/test_skills.py",
+        "data/skills.sample.json",
+        "frontend/src/components/SkillsDashboard.tsx",
+        "frontend/src/components/SkillCard.tsx",
+        "frontend/src/api/client.ts",
+        "frontend/tests/App.test.tsx"
+      ],
+      "tests": [
+        "backend/tests/test_skills.py",
+        "frontend/tests/App.test.tsx"
+      ]
+    },
+    {
+      "id": "stack-validation",
+      "title": "Stack validation and planning workflow",
+      "status": "done",
+      "acceptance": [
+        "POST /api/v1/validate accepts skill list, returns compatibility matrix",
+        "Frontend validates a skill stack, shows conflicts/missing deps",
+        "POST /api/v1/plan generates execution plan with parallel groups",
+        "Export validated plan as JSON/Markdown"
+      ],
+      "implementation": [
+        "backend/app/services/validation.py",
+        "backend/app/services/planning.py",
+        "backend/app/api/planning.py",
+        "backend/tests/test_validation_planning.py",
+        "frontend/src/components/ValidationPage.tsx"
+      ],
+      "tests": [
+        "backend/tests/test_validation_planning.py"
+      ]
+    },
+    {
+      "id": "oidc-auth",
+      "title": "OIDC/Keycloak authentication",
+      "status": "planned",
+      "acceptance": [
+        "Keycloak realm import provided",
+        "Backend validates JWT tokens on all data endpoints",
+        "Frontend SPA PKCE login flow with logout",
+        "Role-based access (viewer/operator/admin)"
+      ],
+      "implementation": [],
+      "tests": []
+    }
+  ]
+}

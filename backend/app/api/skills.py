@@ -48,6 +48,14 @@ class ValidateResponse(BaseModel):
     overall_compatible: bool
 
 
+class CategoriesResponse(BaseModel):
+    categories: list[str]
+
+
+class TagsResponse(BaseModel):
+    tags: list[str]
+
+
 async def get_catalog(session: AsyncSession = Depends(get_session)) -> CatalogService:
     """Dependency to get CatalogService with DB session."""
     return CatalogService(session)
@@ -70,6 +78,24 @@ async def list_skills(
         page=page,
         page_size=page_size,
     )
+
+
+@router.get("/skills/categories", response_model=CategoriesResponse, summary="List all categories")
+async def list_categories(
+    catalog: CatalogService = Depends(get_catalog),
+):
+    """Get all unique skill categories."""
+    categories = await catalog.get_categories()
+    return CategoriesResponse(categories=categories)
+
+
+@router.get("/skills/tags", response_model=TagsResponse, summary="List all tags")
+async def list_tags(
+    catalog: CatalogService = Depends(get_catalog),
+):
+    """Get all unique skill tags."""
+    tags = await catalog.get_tags()
+    return TagsResponse(tags=tags)
 
 
 @router.get("/skills/{skill_id}", response_model=SkillResponse, summary="Get skill detail")

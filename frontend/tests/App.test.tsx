@@ -1,11 +1,36 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import App from "../src/App";
-import { api, HealthResponse } from "../src/api/client";
+import { api, HealthResponse, SkillsResponse, CategoriesResponse } from "../src/api/client";
+
+const mockSkillsResponse: SkillsResponse = {
+  items: [
+    {
+      id: "test-skill-1",
+      name: "Test Skill 1",
+      description: "A test skill",
+      category: "test",
+      tags: ["test", "example"],
+      repo_url: "https://github.com/test/skill1",
+      install_command: "pip install test-skill-1",
+      version: "1.0.0",
+      dependencies: [],
+    },
+  ],
+  total: 1,
+  page: 1,
+  page_size: 12,
+};
+
+const mockCategoriesResponse: CategoriesResponse = {
+  categories: ["test", "orchestration", "rag"],
+};
 
 describe("App", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.spyOn(api, "listSkills").mockResolvedValue(mockSkillsResponse);
+    vi.spyOn(api, "getCategories").mockResolvedValue(mockCategoriesResponse);
   });
 
   it("renders loading state initially", () => {
