@@ -16,6 +16,8 @@ export function SkillsDashboard({ initialCategory }: SkillsDashboardProps) {
   const [category, setCategory] = useState(initialCategory || "");
   const [tag, setTag] = useState("");
   const [query, setQuery] = useState("");
+  const [categories, setCategories] = useState<string[]>([]);
+  const [categoriesLoading, setCategoriesLoading] = useState(true);
 
   const fetchSkills = useCallback(async () => {
     setLoading(true);
@@ -31,9 +33,25 @@ export function SkillsDashboard({ initialCategory }: SkillsDashboardProps) {
     }
   }, [page, pageSize, category, tag, query]);
 
+  const fetchCategories = useCallback(async () => {
+    setCategoriesLoading(true);
+    try {
+      const data = await api.getCategories();
+      setCategories(data.categories);
+    } catch (err) {
+      console.error("Failed to load categories:", err);
+    } finally {
+      setCategoriesLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
     fetchSkills();
   }, [fetchSkills]);
+
+  useEffect(() => {
+    fetchCategories();
+  }, [fetchCategories]);
 
   const totalPages = Math.ceil(total / pageSize) || 1;
 
@@ -83,18 +101,15 @@ export function SkillsDashboard({ initialCategory }: SkillsDashboardProps) {
             <label htmlFor="category" style={{ display: "block", marginBottom: "0.375rem", fontSize: "0.875rem", fontWeight: "500" }}>
               Category
             </label>
-            <select id="category" className="input" value={category} onChange={(e) => handleCategoryChange(e.target.value)}>
+            <select id="category" className="input" value={category} onChange={(e) => handleCategoryChange(e.target.value)} disabled={categoriesLoading}>
               <option value="">All Categories</option>
-              <option value="orchestration">Orchestration</option>
-              <option value="rag">RAG</option>
-              <option value="vector-db">Vector DB</option>
-              <option value="optimization">Optimization</option>
-              <option value="prompting">Prompting</option>
-              <option value="llm-client">LLM Client</option>
-              <option value="ml-framework">ML Framework</option>
-              <option value="observability">Observability</option>
-              <option value="mlops">MLOps</option>
+              {categories.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat.charAt(0).toUpperCase() + cat.slice(1).replace(/-/g, " ")}
+                </option>
+              ))}
             </select>
+            {categoriesLoading && <span style={{ fontSize: "0.75rem", color: "var(--color-text-muted)" }}>Loading categories…</span>}
           </div>
 
           <div style={{ minWidth: "150px" }}>

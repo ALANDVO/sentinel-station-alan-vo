@@ -26,6 +26,14 @@ export interface SkillsResponse {
   page_size: number;
 }
 
+export interface CategoriesResponse {
+  categories: string[];
+}
+
+export interface TagsResponse {
+  tags: string[];
+}
+
 export interface ValidateRequest {
   skill_ids: string[];
 }
@@ -79,6 +87,10 @@ export const api = {
   },
 
   getSkill: (id: string) => request<Skill>(`/skills/${id}`),
+
+  getCategories: () => request<CategoriesResponse>("/skills/categories"),
+
+  getTags: () => request<TagsResponse>("/skills/tags"),
 
   validateStack: (skillIds: string[]) =>
     request<ValidateResponse>("/validate", {
