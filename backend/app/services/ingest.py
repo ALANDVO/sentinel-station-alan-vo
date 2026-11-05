@@ -4,10 +4,9 @@ import asyncio
 import json
 from pathlib import Path
 
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import engine, async_session_maker
-from app.models.skill import Base, Skill
+from app.models.skill import Base
 from app.services.catalog import CatalogService
 
 
@@ -18,7 +17,7 @@ async def ingest_skills(json_path: Path) -> int:
         return 0
 
     with open(json_path) as f:
-        data = json.load(f)
+        _ = json.load(f)  # Validate JSON structure
 
     async with async_session_maker() as session:
         catalog = CatalogService(session)

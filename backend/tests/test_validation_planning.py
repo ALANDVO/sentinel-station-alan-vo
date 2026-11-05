@@ -1,8 +1,7 @@
 """Tests for validation and planning engines."""
 
-import pytest
 
-from app.services.validation import ValidationEngine, ValidationIssue
+from app.services.validation import ValidationEngine
 from app.services.planning import PlanningEngine
 from app.models.skill import Skill
 
@@ -162,7 +161,7 @@ def test_planning_engine_respects_dependencies():
     langgraph_step = next(s for s in plan.steps if s.skill_id == "langgraph")
 
     # langgraph should depend on langchain
-    assert f"step-langchain" in langgraph_step.depends_on
+    assert "step-langchain" in langgraph_step.depends_on
 
 
 def test_planning_engine_json_export():

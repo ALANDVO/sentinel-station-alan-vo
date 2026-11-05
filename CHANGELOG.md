@@ -1,8 +1,29 @@
 # Changelog
 
+## 1.2.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
 ## 1.1.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
+
+## [1.1.0] - 2026-11-05
+
+### Added
+- Fixed planning API endpoint dependencies (`/api/v1/plan` and `/api/v1/plan/export`) to properly inject database sessions
+- Added `get_validation_engine` and `get_planning_engine` FastAPI dependencies
+- Fixed missing import of `create_validation_engine` in planning service
+- Catalog ingestion script now validates JSON structure before processing
+
+### Changed
+- Updated test fixture to clear skills table between tests for proper isolation
+- Planning engine now correctly uses ValidationEngine (category conflicts as warnings, not errors)
+
+### Fixed
+- Planning endpoint returning 500 due to missing session dependency injection
+- Export endpoint returning empty plans due to database state issues after test runs
+- Unused import lint warnings in `app/services/ingest.py`
 
 ## 1.0.0 — work-in-progress checkpoint
 
