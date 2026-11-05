@@ -1,7 +1,7 @@
 """Stack validation engine — deterministic compatibility analysis."""
 
 from dataclasses import dataclass
-from typing import Dict, List, Set
+from typing import Dict, List
 
 from app.models.skill import Skill
 

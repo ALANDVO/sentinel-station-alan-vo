@@ -2,10 +2,9 @@
 
 import pytest
 from httpx import ASGITransport, AsyncClient
-from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.main import create_app
-from app.api.deps import init_db, engine
+from app.api.deps import engine
 from app.models.skill import Base
 
 
@@ -28,6 +27,9 @@ async def init_test_db():
     """Initialize test database before each test."""
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+        # Clear any existing data to ensure test isolation
+        from sqlalchemy import text
+        await conn.execute(text("DELETE FROM skills"))
     yield
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)

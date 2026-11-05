@@ -1,6 +1,5 @@
 """Application configuration."""
 
-import os
 from functools import lru_cache
 from typing import List
 

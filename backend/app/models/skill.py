@@ -1,6 +1,6 @@
 """Skill catalog data models."""
 
-from sqlalchemy import Column, String, Text, Integer, JSON, DateTime, func
+from sqlalchemy import Column, String, Text, JSON, DateTime, func
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()

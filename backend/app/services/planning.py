@@ -1,10 +1,10 @@
 """Planning engine — workflow generation from validated skill stacks."""
 
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Set
+from typing import Dict, List, Optional
 
 from app.models.skill import Skill
-from app.services.validation import ValidationEngine, ValidationResult
+from app.services.validation import ValidationEngine, ValidationResult, create_validation_engine
 
 
 @dataclass

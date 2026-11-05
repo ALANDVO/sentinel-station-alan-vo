@@ -8,6 +8,17 @@ from app.api.deps import get_session
 from app.services.validation import ValidationEngine, create_validation_engine
 from app.services.planning import PlanningEngine, create_planning_engine
 
+
+async def get_validation_engine(session: AsyncSession = Depends(get_session)) -> ValidationEngine:
+    """Dependency to get ValidationEngine with DB session."""
+    return await create_validation_engine(session)
+
+
+async def get_planning_engine(session: AsyncSession = Depends(get_session)) -> PlanningEngine:
+    """Dependency to get PlanningEngine with DB session."""
+    return await create_planning_engine(session)
+
+
 router = APIRouter()
 
 
@@ -37,8 +48,8 @@ class ExecutionPlanResponse(BaseModel):
 @router.post("/plan", response_model=ExecutionPlanResponse, summary="Generate execution plan")
 async def generate_plan(
     request: PlanRequest,
-    validation_engine: ValidationEngine = Depends(create_validation_engine),
-    planning_engine: PlanningEngine = Depends(create_planning_engine),
+    validation_engine: ValidationEngine = Depends(get_validation_engine),
+    planning_engine: PlanningEngine = Depends(get_planning_engine),
 ):
     """Generate execution plan from skill stack."""
     if not request.skill_ids:
@@ -84,8 +95,8 @@ async def generate_plan(
 async def export_plan(
     request: PlanRequest,
     format: str = "json",
-    validation_engine: ValidationEngine = Depends(create_validation_engine),
-    planning_engine: PlanningEngine = Depends(create_planning_engine),
+    validation_engine: ValidationEngine = Depends(get_validation_engine),
+    planning_engine: PlanningEngine = Depends(get_planning_engine),
 ):
     """Export execution plan as JSON or Markdown."""
     if format not in ("json", "markdown", "md"):
