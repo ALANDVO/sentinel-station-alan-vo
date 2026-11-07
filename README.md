@@ -228,3 +228,7 @@ sentinel-station-alan-vo/
 MIT License — Copyright (c) 2026 Alan Vo <alanvo@gmail.com>
 
 See [LICENSE](LICENSE) for full text.
+
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)

@@ -66,3 +66,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Route ordering issue where `/skills/categories` and `/skills/tags` were incorrectly matched by `/skills/{skill_id}`
 
+---
+
+Alan Vo · [alanvo.net](https://alanvo.net)
