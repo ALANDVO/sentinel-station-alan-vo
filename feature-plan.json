@@ -1,13 +1,77 @@
 {
   "schema_version": 1,
-  "current_feature": "continue-implementation",
+  "current_feature": "frontend-lint-typescript-fix",
   "features": [
+    {
+      "id": "frontend-lint-typescript-fix",
+      "title": "Fix frontend linting and TypeScript type errors",
+      "status": "done",
+      "acceptance": [
+        "ESLint flat config works with TypeScript and React",
+        "TypeScript compilation passes (npx tsc --noEmit)",
+        "Frontend tests pass (npm test)"
+      ],
+      "implementation": [
+        "frontend/eslint.config.js",
+        "frontend/package.json",
+        "frontend/tests/App.test.tsx"
+      ],
+      "tests": [
+        "frontend: npm run lint",
+        "frontend: npx tsc --noEmit",
+        "frontend: npm test"
+      ]
+    },
     {
       "id": "continue-implementation",
       "title": "Continue implementation and resolve known failures",
-      "status": "in_progress",
+      "status": "done",
       "acceptance": [
         "Run checks, fix failures, and implement the next planned feature"
+      ],
+      "implementation": [
+        "backend/app/main.py",
+        "backend/app/api/health.py",
+        "backend/app/api/skills.py",
+        "backend/app/api/planning.py",
+        "backend/app/services/catalog.py",
+        "backend/app/services/validation.py",
+        "backend/app/services/planning.py",
+        "backend/app/services/ingest.py",
+        "backend/app/models/skill.py",
+        "frontend/src/App.tsx",
+        "frontend/src/components/SkillsDashboard.tsx",
+        "frontend/src/components/ValidationPage.tsx",
+        "frontend/src/api/client.ts"
+      ],
+      "tests": [
+        "backend: pytest - 17 passed",
+        "frontend: npm test - 4 passed",
+        "frontend: npx tsc --noEmit",
+        "frontend: npm run lint"
+      ]
+    },
+    {
+      "id": "mcp-server",
+      "title": "Local MCP server exposing catalog and validation",
+      "status": "planned",
+      "acceptance": [
+        "MCP server starts and registers tools",
+        "Exposes list_skills, get_skill, validate_stack, generate_plan as MCP tools",
+        "Works with MCP clients (e.g., Cursor, Claude Desktop)"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "oidc-keycloak-auth",
+      "title": "Production-ready authentication with SAML broker support",
+      "status": "planned",
+      "acceptance": [
+        "Keycloak realm configuration",
+        "OIDC login flow with JWT validation",
+        "SAML 2.0 identity provider brokering",
+        "Demo mode explicitly refused in production"
       ],
       "implementation": [],
       "tests": []
