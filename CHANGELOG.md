@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
 ## 1.2.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
@@ -25,14 +29,23 @@ Partial code published for continued development. Known issues: STATUS.md.
 - Export endpoint returning empty plans due to database state issues after test runs
 - Unused import lint warnings in `app/services/ingest.py`
 
-## 1.0.0 — work-in-progress checkpoint
+## [1.2.0] - 2026-11-10
 
-Partial code published for continued development. Known issues: STATUS.md.
+### Added
+- Frontend ESLint flat config (`frontend/eslint.config.js`) with TypeScript and React plugin support
+- Frontend TypeScript type checking now passes (`npx tsc --noEmit`)
+- `@testing-library/dom` dependency for proper test imports
 
-All notable changes to this project will be documented in this file.
+### Changed
+- Fixed test imports in `frontend/tests/App.test.tsx` to import `screen` and `waitFor` from `@testing-library/dom`
+- Updated `frontend/package.json` with ESLint TypeScript dependencies: `@typescript-eslint/parser`, `@typescript-eslint/eslint-plugin`, `typescript-eslint`
+- Updated PLAN.md with completed features and roadmap for MCP server and OIDC/Keycloak auth
+- Updated feature-plan.json with current feature tracking
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### Fixed
+- ESLint parsing errors for TypeScript files (interface, type annotations)
+- TypeScript compilation errors in test file (missing `screen`, `waitFor` exports)
+- All frontend checks now pass: lint, type check, tests
 
 ## [1.0.0] - 2026-10-21
 
