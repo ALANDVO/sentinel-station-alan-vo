@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.5.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
+## 1.4.1 — work-in-progress checkpoint
+
+MCP server added, exposing sentinel-station capabilities via JSON-RPC 2.0 over stdio.
+- MCP server tool: `list_skills` — list all skills with category/tag filtering
+- MCP server tool: `get_skill` — get a single skill by ID
+- MCP server tool: `validate_stack` — validate compatibility of a skill stack
+- MCP server tool: `generate_plan` — generate an execution plan from a validated skill stack
+- Capability negotiation on `initialize` with server info
+- Proper error handling for missing skills and unknown methods
+
+Bug fixes:
+- None (existing 17 backend tests and 4 frontend tests all pass)
+
 ## 1.4.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
@@ -66,22 +83,6 @@ Partial code published for continued development. Known issues: STATUS.md.
 
 ### Fixed
 - N/A
-
-## [1.1.0] - 2026-10-29
-
-### Added
-- GET `/api/v1/skills/categories` endpoint returning all unique skill categories
-- GET `/api/v1/skills/tags` endpoint returning all unique skill tags
-- Frontend API client methods `getCategories()` and `getTags()`
-- Dynamic category dropdown in SkillsDashboard populated from API
-
-### Changed
-- Reordered skills API routes to fix path parameter collision (specific routes before `/skills/{skill_id}`)
-- Frontend SkillsDashboard now fetches categories dynamically instead of hardcoded list
-- Updated frontend tests with mocks for skills list and categories endpoints
-
-### Fixed
-- Route ordering issue where `/skills/categories` and `/skills/tags` were incorrectly matched by `/skills/{skill_id}`
 
 ---
 
