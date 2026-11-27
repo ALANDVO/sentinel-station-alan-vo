@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sentinel-station-backend"
-version = "1.5.0"
+version = "1.6.0"
 description = "Sentinel Station backend — Local agent-first control plane for AI/ML skills"
 readme = "../README.md"
 license = {text = "MIT"}

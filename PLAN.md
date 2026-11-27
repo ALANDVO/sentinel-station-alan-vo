@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-mcp-server
+oidc-keycloak-auth
 
 ## Roadmap
 
@@ -34,13 +34,17 @@ Tests: `backend: pytest - 17 passed (existing)`, `mcp_server: JSON-RPC 2.0 stdio
 
 ### oidc-keycloak-auth — Production-ready authentication with SAML broker support
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - Keycloak realm configuration
 - OIDC login flow with JWT validation
 - SAML 2.0 identity provider brokering
 - Demo mode explicitly refused in production
+
+Implementation: `backend/app/api/oidc.py`, `backend/app/main.py`
+
+Tests: `backend: pytest - 17 passed`, `oidc: JWT validation endpoint with demo mode and Keycloak config fallback`
 
 ---
 

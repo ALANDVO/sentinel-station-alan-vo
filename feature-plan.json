@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "mcp-server",
+  "current_feature": "oidc-keycloak-auth",
   "features": [
     {
       "id": "continue-implementation",
@@ -51,15 +51,21 @@
     {
       "id": "oidc-keycloak-auth",
       "title": "Production-ready authentication with SAML broker support",
-      "status": "planned",
+      "status": "in_progress",
       "acceptance": [
         "Keycloak realm configuration",
         "OIDC login flow with JWT validation",
         "SAML 2.0 identity provider brokering",
         "Demo mode explicitly refused in production"
       ],
-      "implementation": [],
-      "tests": []
+      "implementation": [
+        "backend/app/api/oidc.py",
+        "backend/app/main.py"
+      ],
+      "tests": [
+        "backend: pytest - 17 passed",
+        "oidc: JWT validation endpoint with demo mode and Keycloak config fallback"
+      ]
     }
   ]
 }

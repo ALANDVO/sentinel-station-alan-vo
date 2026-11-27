@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import health, skills, planning
+from app.api import health, skills, planning, oidc
 from app.api.deps import init_db
 from app.core.config import settings
 
@@ -41,6 +41,7 @@ def create_app() -> FastAPI:
     app.include_router(health.router, prefix="/api/v1", tags=["health"])
     app.include_router(skills.router, prefix="/api/v1", tags=["skills"])
     app.include_router(planning.router, prefix="/api/v1", tags=["planning"])
+    app.include_router(oidc.router, prefix="/api/v1", tags=["auth"])
 
     return app
 
